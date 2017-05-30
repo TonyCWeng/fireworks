@@ -1,14 +1,15 @@
-# Peoposal
+# Proposal
 [Fireworks Live](tbd)
 
 ## Background
-Fireworks is a fun single screen game that will simply allow users to witness a variety of fireworks upon key presses.
+Fireworks is a fun single screen game that will simply allow users to witness a variety of fireworks and other animation effects through keystrokes. Aside from the titular fireworks, there should be a number of other visually appealing effects (screen flashes, background color changes, shooting stars, etc.).
 
 ## Minimum Viable Product
 Fireworks should have the following features:
 
 - Predetermined keys should cause a firework animation to occur alongside an appropriate sound.
-- Fireworks should fade away and not persist on the screen.
+- Certain keystrokes should have a pool of animation variations to occur. Sound remains faithful to this animation pool.
+- Animations should fade away and not persist on screen.
 - There should be a display informing users to click on Alphabetic keystrokes.
 
 There should also be an appropriate production Readme.
@@ -28,18 +29,19 @@ This project will require the following technologies to implement:
 
 ## Timeline
 
-### Day 1: Setup
-**Objective:** Basic javascript project setup. Setup `webpack.config.js`, entry file, `package.json.` Install `howler.js` and `anime.js`.
+### Day 1: Setup and Begin Animations
+**Objective:** Basic javascript project setup. Setup `webpack.config.js`, entry file, `package.json.` Install `howler.js` and `anime.js`. Learn `anime.js` and create a number of suitable animations.
 
 ### Day 2: Animations
-**Objective:** Learn `anime.js` and hopefully create a number of firework animations.
+**Objective:** Continue working on animations as needed.
 
 ### Day 3: Event Logic and Continue Animations
-**Objective:** Map keystrokes to fireworks. If needed, spend more time on firework animations
+**Objective:** Finish animation creations and map keystrokes to fireworks.
 
-### Day 4: Sound
-**Objective:** Learn `howler.js` and find appropriate firework sound effects.
+### Day 4: Add Sound
+**Objective:** Add appropriate sound effects to animations.
 
 ### Bonus features
 
-- [ ] Add non-firework animations that may help enliven the display.
+- [ ] Add persistent nightsky background (clouds, moon, sun) and keybinds to alter it.
+- [ ] Finetune animations. 
