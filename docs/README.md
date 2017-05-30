@@ -7,10 +7,10 @@ Fireworks is a fun single screen game that will simply allow users to witness a 
 ## Minimum Viable Product
 Fireworks should have the following features:
 
-- Predetermined keys should cause a firework animation to occur alongside an appropriate sound.
-- Certain keystrokes should have a pool of animation variations to occur. Sound remains faithful to this animation pool.
-- Animations should fade away and not persist on screen.
 - There should be a display informing users to click on Alphabetic keystrokes.
+- Predetermined keys should cause a firework animation to occur alongside an appropriate sound.
+- Animations should fade away and not persist on screen.
+- Certain keystrokes should have a pool of animation variations to occur. Consistent sound per key.
 
 There should also be an appropriate production Readme.
 
@@ -25,7 +25,8 @@ This particular app will feature only a single display, alongside navlinks to my
 This project will require the following technologies to implement:
 - Javascript and `jquery` for firework logic and binding keypresses to fireworks.
 - `howler.js` for keypresses to additionally cause some sound to play alongside the firework.
-- `anime.js` for the actual firework animations.
+- `easel.js` to more easily create base shapes and images.
+- `anime.js` to animate these shapes.
 
 ## Timeline
 
@@ -44,4 +45,4 @@ This project will require the following technologies to implement:
 ### Bonus features
 
 - [ ] Add persistent nightsky background (clouds, moon, sun) and keybinds to alter it.
-- [ ] Finetune animations. 
+- [ ] Finetune animations.
