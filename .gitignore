@@ -1,0 +1,6 @@
+/.bundle
+bundle.js
+bundle.js.map
+log/**
+tmp/**
+node_modules/
