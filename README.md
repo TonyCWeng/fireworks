@@ -44,4 +44,5 @@ Sound was handled through the use of an external library, Howler.js.
 
 ## Future Implementations
 
-In the future, I would like to touch up on animations, perhaps through the use of Animejs.
+[ ] Touch up on animations through the use of an eternal library.
+[ ] The ability to record one's creation.
