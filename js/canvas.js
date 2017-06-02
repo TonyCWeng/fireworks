@@ -410,8 +410,8 @@ $(document).keydown(function(e) {
   var fcircles = new createFCircles();
 
   let howl = new Howl({
-            src: music[e.keyCode]
-        }).play();
+              src: music[e.keyCode]
+            }).play();
 
   $(".instructions").hide();
 
@@ -522,10 +522,10 @@ $(document).keydown(function(e) {
       setTimeout(() => $("canvas").css("background-color", ""), 100);
       break;
     case 87:
-      fadingVLines(-500, 150, ctx.canvas.width, 150, -30, 0, ctx.canvas.height * 3, "#fff");
+      fadingVLines(-500, 150, ctx.canvas.width, 150, -30, 0, ctx.canvas.height * 3, "#white");
       break;
     case 88:
-      fadingVLines(ctx.canvas.width, 150, ctx.canvas.width, 150, 30, 0, ctx.canvas.height * 3, "#000");
+      fadingVLines(ctx.canvas.width, 150, ctx.canvas.width, 150, 30, 0, ctx.canvas.height * 3, "#black");
       break;
     case 89:
   }

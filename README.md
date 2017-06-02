@@ -23,7 +23,22 @@ function animate() {
 }
 ```
 
-Sound was implemented through the use of Howler.js.
+
+
+```Javascript
+document.addEventListener("keydown", (function(e) {
+
+  let howl = new Howl({src: music[e.keyCode]}).play();
+
+  switch(e.keyCode) {
+    case 65:
+      animations.push(circle1);
+      setTimeout(removeAnimation.bind(null, circle1), 2000);
+  }
+)}
+
+
+Sound was handled through the use of an external library, Howler.js.
 
 
 
