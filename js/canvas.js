@@ -9,6 +9,11 @@ ctx.canvas.height = window.innerHeight;
 var cx = ctx.canvas.width / 2;
 var cy = ctx.canvas.height / 2;
 
+function setCanvasSize() {
+   canvas.width = window.innerWidth;
+   canvas.height = window.innerHeight;
+}
+
 
 function Circle(x, y, dx, dy, radius, color) {
   this.x = x;
@@ -175,10 +180,6 @@ function Rectangle(x, y, width, height, color) {
     this.height -= 5;
     this.draw();
   };
-}
-
-function createCircle(x, y, dx, dy, radius, color) {
-  return new Circle(x, y, dx, dy, radius, color);
 }
 
 function createCircles() {
@@ -356,5 +357,5 @@ $(document).keydown(function(e) {
 
 
 });
-
+window.addEventListener('resize', setCanvasSize, false);
 animate();
