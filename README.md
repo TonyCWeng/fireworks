@@ -36,7 +36,7 @@ document.addEventListener("keydown", (function(e) {
       setTimeout(removeAnimation.bind(null, circle1), 2000);
   }
 )}
-
+```
 
 Sound was handled through the use of an external library, Howler.js.
 
