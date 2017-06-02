@@ -1,7 +1,43 @@
+.header-container {
+  width: 100%;
+}
+.header {
+  padding-left:40px;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.text {
+  color: #C70039;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.center {
+  text-align: center;
+  position: fixed;
+  font-weight: 700;
+  top: 40%;
+  left: 40%;
+}
+
+.linkedin {
+  right:
+}
+
+.title {
+  font-size: 2em;
+}
+
+.instructions {
+  font-size: 1em;
+  margin-top: .35em;
+}
+
 .canvas {
-  background-color: #fff;
+  background-color: rgb(181, 181, 181);
   position: absolute;
-  
   left: 0;
   z-index: -10;
 }
@@ -36,4 +72,8 @@
 
 .pink {
   background-color: #ffd1dc;
+}
+
+.white {
+  background-color: #fff;
 }

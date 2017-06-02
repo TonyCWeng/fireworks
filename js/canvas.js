@@ -14,6 +14,36 @@ function setCanvasSize() {
    canvas.height = window.innerHeight;
 }
 
+const music = {
+    32: ['./sounds/kick.wav'],
+    65: ['./sounds/kick.wav'],
+    66: ['./sounds/heavy.wav'],
+    67: ['./sounds/whoosh.wav'],
+    68: ['./sounds/boom.wav'],
+    69: ['./sounds/heavy2.wav'],
+    70: ['./sounds/swed.wav'],
+    71: ['./sounds/snare1.wav'],
+    72: ['./sounds/snare2.wav'],
+    73: ['./sounds/sub.wav'],
+    74: ['./sounds/chord2.wav'],
+    75: ['./sounds/chord.wav'],
+    76: ['./sounds/lightsaber.mp3'],
+    77: ['./sounds/snap.wav'],
+    78: ['./sounds/plastic.wav'],
+    79: ['./sounds/swing.wav'],
+    80: ['./sounds/saber.wav'],
+    81: ['./sounds/swoosh.wav'],
+    82: ['./sounds/chime.wav'],
+    83: ['./sounds/correct.wav'],
+    84: ['./sounds/drum.wav'],
+    85: ['./sounds/bodyfall.wav'],
+    86: ['./sounds/amb.wav'],
+    87: ['./sounds/kk.wav'],
+    88: ['./sounds/clap.wav'],
+    89: ['./sounds/chop.wav'],
+    90: ['./sounds/rattle.wav']
+};
+
 
 function Circle(x, y, dx, dy, radius, color) {
   this.x = x;
@@ -117,6 +147,70 @@ function Line(x1, y1, x2, y2, vx, vy, width, color) {
   };
 }
 
+function movingLine(x1, y1, x2, y2, vx, vy, width, color) {
+  this.x1 = x1;
+  this.y1 = y1;
+  this.x2 = x2;
+  this.y2 = y2;
+  this.vx = vx;
+  this.vy = vy;
+  this.width = width;
+  this.color = color;
+
+  this.draw = function() {
+    ctx.beginPath();
+    ctx.lineWidth = this.width;
+    ctx.moveTo(this.x1, this.y1);
+    ctx.lineTo(this.x2, this.y2);
+    ctx.strokeStyle = this.color;
+    ctx.stroke();
+  };
+
+  this.update = function() {
+    if (this.x > innerWidth || this.x - this.radius < 0) {
+      removeAnimation(this);
+      return;
+    }
+    this.x1 += this.vx;
+    this.y1 += this.vy;
+    this.x2 += this.vx;
+    this.y2 += this.vy;
+    this.draw();
+  };
+}
+
+function fadingLine(x1, y1, x2, y2, vx, vy, width, color) {
+  this.x1 = x1;
+  this.y1 = y1;
+  this.x2 = x2;
+  this.y2 = y2;
+  this.vx = vx;
+  this.vy = vy;
+  this.width = width;
+  this.color = color;
+
+  this.draw = function() {
+    ctx.beginPath();
+    ctx.lineWidth = this.width;
+    ctx.moveTo(this.x1, this.y1);
+    ctx.lineTo(this.x2, this.y2);
+    ctx.strokeStyle = this.color;
+    ctx.stroke();
+  };
+
+  this.update = function() {
+    if (this.x > innerWidth || this.x - this.radius < 0) {
+      removeAnimation(this);
+      return;
+    }
+    this.x1 -= this.vx;
+    this.y1 -= this.vy;
+
+    this.draw();
+  };
+}
+
+
 function createHLines(x1, y1, x2, y2, vx, vy, width, color) {
   var line1 = new Line(x1, y1, x2, y2, vx, vy, width, color);
   var line2 = new Line(x1, y1+100, x2, y2+100, vx, vy, width, color);
@@ -136,6 +230,51 @@ function createHLines(x1, y1, x2, y2, vx, vy, width, color) {
   setTimeout(removeAnimation.bind(null, line4), 1500);
   setTimeout(removeAnimation.bind(null, line5), 1500);
   setTimeout(removeAnimation.bind(null, line6), 1500);
+}
+
+function movingHLines(x1, y1, x2, y2, vx, vy, width, color) {
+  var shot1 = new movingLine(x1, y1, x2, y2, vx, vy, width, color);
+  var shot2 = new movingLine(x1, y1+40, x2, y2+40, vx, vy, width, color);
+  var shot3 = new movingLine(x1, y1+80, x2, y2+80, vx, vy, width, color);
+  var shot4 = new movingLine(x1, y1+120, x2, y2+120, vx, vy, width, color);
+  var shot5 = new movingLine(x1, y1+160, x2, y2+160, vx, vy, width, color);
+  var shot6 = new movingLine(x1, y1+200, x2, y2+200, vx, vy, width, color);
+  animations.push(shot1);
+  animations.push(shot2);
+  animations.push(shot3);
+  animations.push(shot4);
+  animations.push(shot5);
+  animations.push(shot6);
+  setTimeout(removeAnimation.bind(null, shot1), 1500);
+  setTimeout(removeAnimation.bind(null, shot2), 1500);
+  setTimeout(removeAnimation.bind(null, shot3), 1500);
+  setTimeout(removeAnimation.bind(null, shot4), 1500);
+  setTimeout(removeAnimation.bind(null, shot5), 1500);
+  setTimeout(removeAnimation.bind(null, shot6), 1500);
+}
+
+function moving3HLines(x1, y1, x2, y2, vx, vy, width, color) {
+  var shot1 = new movingLine(x1, y1, x2, y2, vx, vy, width, color);
+  var shot3 = new movingLine(x1, y1+80, x2, y2+80, vx, vy, width, color);
+  var shot5 = new movingLine(x1, y1+160, x2, y2+160, vx, vy, width, color);
+  animations.push(shot1);
+  animations.push(shot3);
+  animations.push(shot5);
+  setTimeout(removeAnimation.bind(null, shot1), 1500);
+  setTimeout(removeAnimation.bind(null, shot3), 1500);
+  setTimeout(removeAnimation.bind(null, shot5), 1500);
+}
+
+function fadingVLines(x1, y1, x2, y2, vx, vy, width, color) {
+  var shot1 = new fadingLine(x1, y1, x2, y2, vx, vy, width, color);
+  var shot3 = new fadingLine(x1+100, y1, x2+100, y2, vx, vy, width, color);
+  var shot5 = new fadingLine(x1+200, y1, x2+200, y2, vx, vy, width, color);
+  animations.push(shot1);
+  animations.push(shot3);
+  animations.push(shot5);
+  setTimeout(removeAnimation.bind(null, shot1), 1500);
+  setTimeout(removeAnimation.bind(null, shot3), 1500);
+  setTimeout(removeAnimation.bind(null, shot5), 1500);
 }
 
 function createVLines(x1, y1, x2, y2, vx, vy, width, color) {
@@ -200,7 +339,7 @@ function createCircles() {
 
 function createFallingCircles() {
   var circleArray = [];
-  for (var i = 0; i < 10; i++) {
+  for (var i = 0; i < 20; i++) {
     const colorArr = [ '#ADD8E6','#ffaa33', '#99ffaaa', '#00ff00', '#4411aa', '#ff1100'];
     var radius = 10;
     var x = Math.random() * (innerWidth - radius * 2) + radius;
@@ -216,7 +355,7 @@ function createFallingCircles() {
 
 function createFCircles() {
   var circleFArray = [];
-  for (var i = 0; i < 10; i++) {
+  for (var i = 0; i < 15; i++) {
     const colorArr = [ '#ADD8E6','#ffaa33', '#99ffaaa', '#00ff00', '#4411aa', '#ff1100'];
     var radius = 75;
     var x = Math.random() * (innerWidth - radius * 2) + radius;
@@ -244,8 +383,6 @@ function animate() {
 function removeAnimation(object) {
   let pos = animations.indexOf(object);
   if (pos > -1) animations.splice(pos, 1);
-  this.dy = 0;
-  this.dx = 0;
 }
 
 function changeBG() {
@@ -272,10 +409,11 @@ $(document).keydown(function(e) {
   var rectangle4 = new Rectangle(450, 450, 200, 200, "#ADD8E6");
   var fcircles = new createFCircles();
 
-      var sound = new Howl({
-      src: ['./sounds/kick.wav']
-    }).play();
+  let howl = new Howl({
+            src: music[e.keyCode]
+        }).play();
 
+  $(".instructions").hide();
 
   switch (e.keyCode) {
     case 32:
@@ -290,7 +428,7 @@ $(document).keydown(function(e) {
       setTimeout(() => $("canvas").css("background-color", ""), 100);
       break;
     case 67:
-      var circle2 = new Circle (100, 400, 5, 0, 100, "orange");
+      var circle2 = new Circle (100, 400, 8, 0, 100, "orange");
       animations.push(circle2);
       setTimeout(removeAnimation.bind(null, circle2), 2000);
       break;
@@ -319,12 +457,12 @@ $(document).keydown(function(e) {
       animations = [];
       break;
     case 72:
-      var fcircle1 = new fadingCircle (cx, 400, 200, "purple");
+      var fcircle1 = new fadingCircle (cx, 400, 200, "#9370DB");
       animations.push(fcircle1);
       setTimeout(removeAnimation.bind(null, fcircle1), 1000);
       break;
     case 73:
-      var gcircle1 = new growingCircle(cx, cy, 100, "black");
+      var gcircle1 = new growingCircle(cx, cy, 100, "white");
       animations.push(gcircle1);
       setTimeout(removeAnimation.bind(null, gcircle1), 2500);
       break;
@@ -352,6 +490,36 @@ $(document).keydown(function(e) {
       break;
     case 79:
       createHLines(ctx.canvas.width, 100, ctx.canvas.width-100, 100, -15, 0, 45, "#DAF7A6");
+      break;
+    case 80:
+      createVLines(100, ctx.canvas.height, 100, ctx.canvas.height-100, -15, -15, 15, "#9370DB");
+      createVLines(100, ctx.canvas.height, 100, ctx.canvas.height-100, 15, -15, 15, "#9370DB");
+      break;
+    case 81:
+      createVLines(100, 0, 100, 100, 15, 15, 15, "#9370DB");
+      createVLines(100, 0, 100, 100, -15, 15, 15, "#9370DB");
+      break;
+    case 82:
+      movingHLines(-300, 450, 100, 450, 40, 0, 5, "black");
+      break;
+    case 83:
+      moving3HLines(-600, 100, 100, 100, 15, 5, 5, "white");
+      moving3HLines(-300, 400, 100, 100, 15, 5, 5, "white");
+      moving3HLines(-600, 100, -300, 400, 15, 5, 5, "white");
+      break;
+    case 84:
+      fadingVLines(50, ctx.canvas.height, 50, ctx.canvas.height-1000, 0, 15, 50, "#9370DB");
+      fadingVLines(350, ctx.canvas.height, 350, ctx.canvas.height-1000, 0, 15, 50, "#9370DB");
+      fadingVLines(650, ctx.canvas.height, 650, ctx.canvas.height-1000, 0, 15, 50, "#9370DB");
+      break;
+    case 85:
+      fadingVLines(ctx.canvas.width, 150, ctx.canvas.width-2000, 150, 15, 0, 150, "#DAF7A6");
+      fadingVLines(ctx.canvas.width, 350, ctx.canvas.width-2000, 350, 15, 0, 150, "#DAF7A6");
+      fadingVLines(ctx.canvas.width, 550, ctx.canvas.width-2000, 550, 15, 0, 150, "#DAF7A6");
+      break;
+    case 86:
+      flash('white');
+      setTimeout(() => $("canvas").css("background-color", ""), 100);
       break;
   }
 
