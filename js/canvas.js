@@ -328,8 +328,8 @@ function createCircles() {
     var radius = 10;
     var x = Math.random() * (innerWidth - radius * 2) + radius;
     var y = Math.random() * (innerHeight - radius * 2) + radius;
-    var dx = (Math.random() - 0.5) * .2;
-    var dy = (Math.random() - 0.5) * .2;
+    var dx = (Math.random() - 0.5) * 10;
+    var dy = (Math.random() - 0.5) * 10;
     var cirColor = colorArr[Math.floor(Math.random() * colorArr.length)];
 
     circleArray.push(new Circle(x, y, dx, dy, radius, cirColor));
@@ -344,8 +344,8 @@ function createFallingCircles() {
     var radius = 10;
     var x = Math.random() * (innerWidth - radius * 2) + radius;
     var y = Math.random() * (innerHeight / 4) + radius;
-    var dx = (Math.random() - 0.5) * .5;
-    var dy = Math.random() * .9;
+    var dx = (Math.random() - 0.5) * 1;
+    var dy = Math.random() * 2;
     var cirColor = colorArr[Math.floor(Math.random() * colorArr.length)];
 
     circleArray.push(new Circle(x, y, dx, dy, radius, cirColor));
@@ -462,7 +462,7 @@ $(document).keydown(function(e) {
       setTimeout(removeAnimation.bind(null, fcircle1), 1000);
       break;
     case 73:
-      var gcircle1 = new growingCircle(cx, cy, 100, "white");
+      var gcircle1 = new growingCircle(cx-100, cy-100, 100, "white");
       animations.push(gcircle1);
       setTimeout(removeAnimation.bind(null, gcircle1), 2500);
       break;
@@ -522,10 +522,10 @@ $(document).keydown(function(e) {
       setTimeout(() => $("canvas").css("background-color", ""), 100);
       break;
     case 87:
-      fadingVLines(-500, 150, ctx.canvas.width, 150, -30, 0, ctx.canvas.height * 3, "#white");
+      fadingVLines(-500, 150, ctx.canvas.width, 150, -30, 0, ctx.canvas.height * 3, "#fff");
       break;
     case 88:
-      fadingVLines(ctx.canvas.width, 150, ctx.canvas.width, 150, 30, 0, ctx.canvas.height * 3, "#black");
+      fadingVLines(ctx.canvas.width, 150, ctx.canvas.width, 150, 30, 0, ctx.canvas.height * 3, "#000");
       break;
     case 89:
   }
