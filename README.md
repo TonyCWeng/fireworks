@@ -4,7 +4,7 @@
 
 ## Instructions
 
-Fireworks is rather straight-forward: on alphabetical keyclicks, an animation will render on the screen alongside some sound effect. Use the spacebar to remove all ongoing animations.
+Fireworks is rather straight-forward: on alphabetical keyclicks, an animation will render on the screen alongside some sound effect. Use the spacebar or z key to remove all ongoing animations.
 
 ## Technology
 
@@ -39,8 +39,6 @@ document.addEventListener("keydown", (function(e) {
 ```
 
 Sound was handled through the use of an external library, Howler.js.
-
-
 
 ## Future Implementations
 

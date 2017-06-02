@@ -321,9 +321,26 @@ function Rectangle(x, y, width, height, color) {
   };
 }
 
+function animateRectangles() {
+  var rectangleArray = [];
+  for (var i = 0; i < 10; i++) {
+    const colorArr2 = ['#ffaa33', '#99ffaaa', '#00ff00', '#4411aa', '#ff1100'];
+
+    var x = Math.random() * (innerWidth - 50) + 50;
+    var y = Math.random() * (innerHeight - 50) + 50;
+    var rand = colorArr2[Math.floor(Math.random() * colorArr2.length)];
+
+    rectangleArray.push(new Rectangle(x, y, 25, 25, rand));
+  }
+  for (var zx = 0; zx < 10; zx++) {
+    animations.push(rectangleArray[zx]);
+    setTimeout(removeAnimation.bind(null, rectangleArray[zx]), 1500);
+  }
+}
+
 function createCircles() {
   var circleArray = [];
-  for (var i = 0; i < 10; i++) {
+  for (var i = 0; i < 15; i++) {
     const colorArr = [ '#ADD8E6','#ffaa33', '#99ffaaa', '#00ff00', '#4411aa', '#ff1100'];
     var radius = 10;
     var x = Math.random() * (innerWidth - radius * 2) + radius;
@@ -528,6 +545,11 @@ $(document).keydown(function(e) {
       fadingVLines(ctx.canvas.width, 150, ctx.canvas.width, 150, 30, 0, ctx.canvas.height * 3, "#black");
       break;
     case 89:
+      animateRectangles();
+      break;
+    case 90:
+      animations = [];
+      break;
   }
 
 
