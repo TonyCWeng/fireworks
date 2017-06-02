@@ -347,10 +347,10 @@ $(document).keydown(function(e) {
       createVLines(100, 0, 100, 100, 0, 15, 45, "black");
       break;
     case 78:
-      createVLines(100, ctx.canvas.height, 100, ctx.canvas.height-100, 0, -15, 45, "teal");
+      createVLines(100, ctx.canvas.height, 100, ctx.canvas.height-100, 0, -15, 45, "#DAF7A6");
       break;
     case 79:
-      createHLines(ctx.canvas.width, 100, ctx.canvas.width-100, 100, -15, 0, 45, "black");
+      createHLines(ctx.canvas.width, 100, ctx.canvas.width-100, 100, -15, 0, 45, "#DAF7A6");
       break;
   }
 
