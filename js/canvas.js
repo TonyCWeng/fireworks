@@ -64,11 +64,11 @@ function Circle(x, y, dx, dy, radius, color) {
 
   this.update = function() {
     if (this.x + this.radius > innerWidth || this.x - this.radius < 0) {
-      this.dx = -this.dx;
+      this.dx = -this.dx * 1.5;
     }
 
     if (this.y + this.radius > innerHeight || this.y - this.radius < 0) {
-      this.dy = -this.dy;
+      this.dy = -this.dy * 1.5;
     }
 
     this.x += this.dx;
@@ -401,7 +401,7 @@ function flash(color) {
 }
 
 $(document).keydown(function(e) {
-  var circle1 = new Circle(cx-100, cy-100, 0, 5, 100, "orange");
+  var circle1 = new Circle(cx-100, cy-100, 0, 10, 100, "#ffd1dc");
 
   var rectangle1 = new Rectangle(200, 200, 200, 200, "#ADD8E6");
   var rectangle2 = new Rectangle(200, 450, 200, 200, "#ADD8E6");
@@ -417,7 +417,7 @@ $(document).keydown(function(e) {
 
   switch (e.keyCode) {
     case 32:
-      changeBG();
+      animations = [];
       break;
     case 65:
       animations.push(circle1);
@@ -428,7 +428,7 @@ $(document).keydown(function(e) {
       setTimeout(() => $("canvas").css("background-color", ""), 100);
       break;
     case 67:
-      var circle2 = new Circle (100, 400, 8, 0, 100, "orange");
+      var circle2 = new Circle (100, 400, 10, 0, 100, "#ffd1dc");
       animations.push(circle2);
       setTimeout(removeAnimation.bind(null, circle2), 2000);
       break;
@@ -454,7 +454,7 @@ $(document).keydown(function(e) {
       }
       break;
     case 71:
-      animations = [];
+      changeBG();
       break;
     case 72:
       var fcircle1 = new fadingCircle (cx, 400, 200, "#9370DB");
@@ -513,14 +513,21 @@ $(document).keydown(function(e) {
       fadingVLines(650, ctx.canvas.height, 650, ctx.canvas.height-1000, 0, 15, 50, "#9370DB");
       break;
     case 85:
-      fadingVLines(ctx.canvas.width, 150, ctx.canvas.width-2000, 150, 15, 0, 150, "#DAF7A6");
-      fadingVLines(ctx.canvas.width, 350, ctx.canvas.width-2000, 350, 15, 0, 150, "#DAF7A6");
-      fadingVLines(ctx.canvas.width, 550, ctx.canvas.width-2000, 550, 15, 0, 150, "#DAF7A6");
+      fadingVLines(ctx.canvas.width, 150, ctx.canvas.width-2000, 150, 15, 0, 150, "#f5a6f7");
+      fadingVLines(ctx.canvas.width, 350, ctx.canvas.width-2000, 350, 15, 0, 150, "#f5a6f7");
+      fadingVLines(ctx.canvas.width, 550, ctx.canvas.width-2000, 550, 15, 0, 150, "#f5a6f7");
       break;
     case 86:
       flash('white');
       setTimeout(() => $("canvas").css("background-color", ""), 100);
       break;
+    case 87:
+      fadingVLines(-500, 150, ctx.canvas.width, 150, -30, 0, ctx.canvas.height * 3, "#white");
+      break;
+    case 88:
+      fadingVLines(ctx.canvas.width, 150, ctx.canvas.width, 150, 30, 0, ctx.canvas.height * 3, "#black");
+      break;
+    case 89:
   }
 
 
