@@ -6,6 +6,8 @@
 
 Fireworks is rather straight-forward: on alphabetical keyclicks, an animation will render on the screen alongside some sound effect. Use the spacebar or z key to remove all ongoing animations.
 
+![Fireworks start: https://tonycweng.github.io/fireworks/](./docs/instructions.png)
+
 ## Technology
 
 The animations were implemented via HTML5 Canvas. Objects are "animated" by calling their update function, which clears the canvas of their previous location and shifts properties such as position or width/radius/length. Objects to be animated are entered into an animations array. The animate function calls upon the update function of every object stored inside this animations array. Objects are removed when their animation finishes or when a set amount of time passes.
