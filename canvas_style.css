@@ -1,6 +1,12 @@
 .header-container {
   width: 100%;
 }
+
+.bottom {
+  display: flex;
+  align-content: flex-end;
+}
+
 .header {
   padding-left:40px;
   position: fixed;
