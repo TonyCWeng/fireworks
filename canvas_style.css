@@ -2,18 +2,13 @@
   width: 100%;
 }
 
-.bottom {
-  display: flex;
-  align-content: flex-end;
-}
-
 .header {
   padding-left:40px;
   position: fixed;
   display: flex;
   justify-content: space-between;
   bottom: 10px;
-  width: 90%;
+  width: 92%;
 }
 
 .github {
