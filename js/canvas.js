@@ -14,7 +14,7 @@ function setCanvasSize() {
    canvas.height = window.innerHeight;
 }
 
-const music = {
+const MUSIC = {
     32: ['./sounds/kick.wav'],
     65: ['./sounds/kick.wav'],
     66: ['./sounds/heavy.wav'],
@@ -427,7 +427,7 @@ $(document).keydown(function(e) {
   var fcircles = new createFCircles();
 
   let howl = new Howl({
-              src: music[e.keyCode]
+              src: MUSIC[e.keyCode]
             }).play();
 
   $(".instructions").hide();

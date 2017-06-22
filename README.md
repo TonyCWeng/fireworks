@@ -10,6 +10,8 @@ Fireworks is rather straight-forward: on alphabetical keyclicks, an animation wi
 
 ## Technology
 
+Fireworks was built purely on JavaScript. 
+
 The animations were implemented via HTML5 Canvas. Objects are "animated" by calling their update function, which clears the canvas of their previous location and shifts properties such as position or width/radius/length. Objects to be animated are entered into an animations array. The animate function calls upon the update function of every object stored inside this animations array. Objects are removed when their animation finishes or when a set amount of time passes.
 
 ```Javascript
@@ -44,5 +46,6 @@ Sound was handled through the use of an external library, Howler.js.
 
 ## Future Implementations
 
-[ ] Touch up on animations through the use of an eternal library.
-[ ] The ability to record one's creation.
+- [ ] Touch up on animations through the use of an eternal library.
+
+- [ ] The ability to record one's creation.
