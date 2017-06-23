@@ -14,7 +14,7 @@ function setCanvasSize() {
    canvas.height = window.innerHeight;
 }
 
-const MUSIC = {
+var MUSIC = {
     32: ['./sounds/kick.wav'],
     65: ['./sounds/kick.wav'],
     66: ['./sounds/heavy.wav'],
@@ -426,9 +426,12 @@ $(document).keydown(function(e) {
   var rectangle4 = new Rectangle(450, 450, 200, 200, "#ADD8E6");
   var fcircles = new createFCircles();
 
-  let howl = new Howl({
-              src: MUSIC[e.keyCode]
-            }).play();
+  if (e.keyCode >= 32 && e.keyCode < 91) {
+    var howl = new Howl({
+                src: MUSIC[e.keyCode],
+                html5: true
+              }).play();
+    }
 
   $(".instructions").hide();
 
