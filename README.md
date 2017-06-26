@@ -4,7 +4,7 @@
 
 ## Instructions
 
-Fireworks is rather straight-forward: on alphabetical keyclicks, an animation will render on the screen alongside some sound effect. Use the spacebar or z key to remove all ongoing animations.
+Fireworks is rather straight-forward to play: on alphabetical keyclicks, an animation will render on the screen alongside a snazzy sound effect. Use the spacebar or z key to remove all ongoing animations.
 ![Fireworks start: https://tonycweng.github.io/fireworks/](https://giant.gfycat.com/SimplisticPleasedIrukandjijellyfish.gif)
 ## Technology
 
