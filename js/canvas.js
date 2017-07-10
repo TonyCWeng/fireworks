@@ -387,7 +387,7 @@ function createFCircles() {
 var animations = [];
 
 function animate() {
-  console.log("abc");
+  
   ctx.clearRect(0, 0, innerWidth, innerHeight);
   for (var k = 0; k < animations.length; k++) {
     animations[k].update();
